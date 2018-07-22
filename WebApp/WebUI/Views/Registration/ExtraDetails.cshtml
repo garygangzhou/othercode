@@ -1,0 +1,34 @@
+﻿@model WebUI.Models.RegistrationData
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ExtraDetails</title>
+</head>
+<body>
+    <div>
+        
+        <h2>Registration: Extra details</h2>
+        Just a bit more info please.
+        @using (Html.BeginForm())
+        {
+            @Html.Hidden("regData", SerializationUtils.Serialize(Model))
+            @Html.ValidationSummary()
+            <p>Age: @Html.TextBox("Age") </p>
+            <p>
+                Hobbies:
+                @Html.TextArea("Hobbies", null, 3, 20, null) 
+            </p>
+            <p>
+                <input type="submit" name="backButton" value="< Back" />
+                <input type="submit" name="nextButton" value="Next >" />
+            </p>
+         }    
+    </div>
+</body>
+</html>

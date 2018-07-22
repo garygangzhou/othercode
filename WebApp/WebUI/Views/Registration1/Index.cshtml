@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration 1</title>
+</head>
+<body>
+    <div> 
+        <h2>Registration</h2>
+        <h3>Verification</h3>
+        <p>Please enter the letters displayed below.</p><br />
+        <p>Please register. It's worth it.</p>
+        @using (Html.BeginForm("SubmitRegistration", "Registration1"))
+        {
+            @Html.Raw( @Html.Captcha("myCaptcha") )
+            <div>Verification letters: @Html.TextBox("attempt") </div>
+            <p><input type="submit" value="Submit registration" /></p>
+        }
+        <p>To do: Ask for account details (name, address, pets name, Gmail password, etc.)</p>                     
+    </div>
+</body>
+</html>

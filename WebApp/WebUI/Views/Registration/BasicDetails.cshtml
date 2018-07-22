@@ -1,0 +1,28 @@
+﻿@model WebUI.Models.RegistrationData
+@{    
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BasicDetails</title>
+</head>
+<body>
+    <div> 
+        <h2>Registration: Basic details</h2>
+        Please enter your details
+        @using (Html.BeginForm())
+        {
+            @Html.Hidden("regData", SerializationUtils.Serialize(Model)) 
+            @Html.ValidationSummary() 
+            <p>Name: @Html.TextBox("Name") </p>
+            <p>E-mail: @Html.TextBox("Email") </p>
+            <p><input type="submit" name="nextButton" value="Next >" /></p>
+        } 
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Admin : LogOn";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Log in</h1>
+    @if((bool?)ViewData["lastLoginFailed"] == true) {
+        <div class="Message">
+            Sorry, your login attempt failed. Please try again.
+        </div>
+    }
+    <p>Please log in to access the administrative area:</p>
+    @using(Html.BeginForm()) { 
+        <div>Login name: @Html.TextBox("name") </div>
+        <div>Password: @Html.Password("password") </div>
+        <p><input type="submit" value="Log in" /></p>
+     } 
+

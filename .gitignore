@@ -4,3 +4,15 @@
 
 /AD_Query/bin
 /AD_Query/obj
+/AD_Query/.vs/AD_Query/v15
+/AutoUITesting/.vs/MCIQ-UITesting
+/FileLoad/.vs
+/WebApp/.vs
+/WebApp/DomainModel/bin/Debug
+/WebApp/DomainModel/obj/Debug
+/WebApp/packages
+/WebApp/SportsStore_DB/obj/Debug
+/WebApp/Tests/bin/Debug
+/WebApp/Tests/obj/Debug
+/WebApp/WebUI/bin
+/WebApp/WebUI/obj/Debug

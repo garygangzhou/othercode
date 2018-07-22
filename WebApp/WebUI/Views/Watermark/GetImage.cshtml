@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetImage</title>
+</head>
+<body>
+    <div> 
+        <h2>This is your image</h2>
+        <img src="@Url.Action("GetImage1", "Watermark" , new {fileName="any.jpeg" })"/>
+    </div>
+</body>
+</html>

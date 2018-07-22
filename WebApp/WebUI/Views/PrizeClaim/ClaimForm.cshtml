@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ClaimForm</title>
+</head>
+<body>
+    <div> 
+        <h1>Congratulations, you've won @ViewData.Eval("PrizeWon") !</h1>
+        <p>Claim it before it expires.</p>
+        @using(Html.BeginForm("SubmitClaim", "PrizeClaim")) { 
+            @Html.Hidden("PrizeHash")
+            <div>Prize: @Html.TextBox("PrizeWon") </div>
+            <div>Your address: @Html.TextArea("Address", null, 4, 15, null) </div>
+            <p align="center"><input type="submit" value="Submit prize claim" /></p>
+         } 
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@model WebUI.Models.RegistrationData
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Confirm</title>
+</head>
+<body>
+    <div> 
+        <h2>Confirm</h2>
+        Please confirm that your details are correct.
+        @using(Html.BeginForm()) {
+            @Html.Hidden("regdata", SerializationUtils.Serialize(Model))
+            <div>Name: <b>@Html.Encode(Model.Name) </b></div>
+        <div>E-mail: <b>@Html.Encode(Model.Email) </b></div>
+        <div>Age: <b>@Model.Age </b></div>
+        <div>Hobbies: <b>@Html.Encode(Model.Hobbies)</b></div>
+        <p>
+            <input type="submit" name="backButton" value="< Back" />
+            <input type="submit" name="nextButton" value="Next >" />
+        </p>
+         } 
+    </div>
+</body>
+</html>

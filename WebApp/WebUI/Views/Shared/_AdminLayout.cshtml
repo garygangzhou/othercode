@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" /> 
+    @Styles.Render("~/Content/adminstyles.css")  
+    <title>@ViewBag.Title - My Sports Shop Admin</title>
+</head>
+<body>
+   
+    <div id="content">
+        @if (TempData["message"] != null) {
+            <div class="Message"> @Html.Encode(TempData["message"]) </div>
+        }
+        @RenderBody()
+    </div>
+</body>
+</html>
