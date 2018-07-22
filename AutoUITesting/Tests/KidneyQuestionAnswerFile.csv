@@ -1,0 +1,6 @@
+Seq,KdnyPersHist,KdnySex,KdnyAge,KdnyFamHist,KdnyHeight_Imperial,KdnyHeight_Metric,KdnyHeight_V1,KdnyHeight_V2,KdnyWeightLB,KdnyWeightKG,KdnyHT,KdnySmoking,KdnySmokeQt,Result
+1,No,Male,55,No,TRUE,FALSE,6',"1""",200lb,,No,No,,LOWER THAN AVERAGE
+2,No,Female,50,No,FALSE,TRUE,180 cm,,,110kg,No,Iutsbiq,,AVERAGE
+3,No,Male,35,No,TRUE,FALSE,6',"1""",230lb,,Yes,Yes,Bfat,HIGHER THAN AVERAGE
+4,No,Male,36,No,TRUE,FALSE,6',"1""",231lb,,Yes,Yes,Mtt,HIGHER THAN AVERAGE
+5,Yes,Male,35,No,TRUE,FALSE,6',"1""",232lb,,Yes,Yes,Bfat,HIGHER
