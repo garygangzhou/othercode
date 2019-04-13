@@ -16,3 +16,10 @@
 /WebApp/Tests/obj/Debug
 /WebApp/WebUI/bin
 /WebApp/WebUI/obj/Debug
+/CC.Web/packages
+/CC.Web/.vs
+/CC.Web/CC.DataAccess/obj/Debug
+/CC.Web/CC.Model/obj/Debug
+/CC.Web/CC.Web/obj/Debug
+/CC.Web/CC.Web/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+/CC.Web/CC.Web/bin
