@@ -1,0 +1,57 @@
+﻿<#@ template language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Reflection" #>
+<#@ assembly name="System.Collections" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations"#>
+<#@ assembly name="$(SolutionDir)\DataAccessLibrary\bin\Debug\EntityFramework.dll"#>
+<#@ assembly name="$(SolutionDir)\DataAccessLibrary\bin\Debug\DataAccessLibrary.dll"#>
+<#@ import namespace="DataAccessLibrary" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations"#>
+<#@ import namespace="System.Data.Entity"#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using DataAccessLibrary;
+using System.Linq.Expressions;
+
+// This is automatically generated code from a T4 template,
+// created on <#=DateTime.Now#>
+
+namespace DALTools
+{
+<# 
+		Assembly asm = Assembly.GetAssembly(typeof(DataAccessLibrary.AdventureWorks2012Entities));
+
+		var q = from t in asm.GetTypes()
+				where 
+					t.IsClass 
+					&& 
+					t.Namespace == "DataAccessLibrary"
+					&&
+					!t.BaseType.Name.Contains("DbContext")
+				select t;
+
+		var qList = q.ToList();
+		
+		foreach(System.Type item in q.ToList()) {#>
+
+		public partial interface I<#=item.Name#>Repository {
+		    IEnumerable<<#=item.Name#>> Get(
+				Expression<Func<<#=item.Name#>, bool>> filter = null,
+				Func<IQueryable<<#=item.Name#>>, IOrderedQueryable<<#=item.Name#>>> orderBy = null,
+				string includeProperties = "");
+			<#=item.Name#> GetByID(object id);
+			IEnumerable<<#=item.Name#>> GetAll();
+			void Insert(<#=item.Name#> entity);
+			void Delete(object id);
+			void Delete(<#=item.Name#> entityToDelete);
+			void Update(<#=item.Name#> entityToUpdate);
+		};
+<#
+		}
+#>
+}

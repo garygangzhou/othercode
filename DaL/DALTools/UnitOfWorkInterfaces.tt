@@ -1,0 +1,49 @@
+﻿<#@ template language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Reflection" #>
+<#@ assembly name="System.Collections" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations"#>
+<#@ assembly name="$(SolutionDir)\DataAccessLibrary\bin\Debug\EntityFramework.dll"#>
+<#@ assembly name="$(SolutionDir)\DataAccessLibrary\bin\Debug\DataAccessLibrary.dll"#>
+<#@ import namespace="DataAccessLibrary" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations"#>
+<#@ import namespace="System.Data.Entity"#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using DataAccessLibrary;
+
+// This is automatically generated code from a T4 template,
+// created on <#=DateTime.Now#>
+
+namespace DALTools
+{
+	public interface IUnitOfWork
+	{
+<#
+		Assembly asm = Assembly.GetAssembly(typeof(DataAccessLibrary.AdventureWorks2012Entities));
+
+		var q = from t in asm.GetTypes()
+				where 
+					t.IsClass 
+					&& 
+					t.Namespace == "DataAccessLibrary"
+					&&
+					!t.BaseType.Name.Contains("DbContext")
+				select t;
+
+		var qList = q.ToList();
+		
+		foreach(System.Type item in q.ToList()) {
+#>
+		I<#=item.Name#>Repository <#=item.Name#>Repository { get; }
+<#
+		}
+#>		void Save();
+	}
+}

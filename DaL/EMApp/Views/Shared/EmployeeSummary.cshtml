@@ -1,0 +1,15 @@
+﻿@model DataAccessLibrary.Employee
+@{
+    ViewBag.Title = "Employee";
+}
+@if (Model != null)
+{    
+    <p style="font-size:larger; font-weight:bold">
+        <a href="@Url.Action("Edit", "Employee", new { id= Model.BusinessEntityID })" style="margin-right:10px">
+            <span class="glyphicon glyphicon-edit"></span>
+        </a>
+        @Html.Raw(string.Format("{0}, {1}", Model.Person.LastName, Model.Person.FirstName))
+    </p>
+    <p>@Model.JobTitle</p>
+}
+

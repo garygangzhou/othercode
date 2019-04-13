@@ -1,0 +1,75 @@
+﻿@model IEnumerable<DataAccessLibrary.Employee>
+@{
+    ViewBag.Title = "Employees List";    
+}
+<h2>Employees List</h2>
+
+@*<p>There are @ViewBag.TotalNumberOfEmployees emplooyees</p>
+<p>There are @ViewBag.TotalPages pages</p>
+<p>There are @ViewBag.ItemsPerPage per page</p>
+<p>Current page @ViewBag.CurrentPage</p>*@
+
+<div class="nav">    
+        <ul class="pagination">
+            @if (@ViewBag.CurrentPage <= 1)
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" href="@Url.Action("Index", "Employee", new { currentPage = 1 })" tabindex="-1">Previous</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("Index", "Employee", new { currentPage = ViewBag.CurrentPage - 1})" tabindex="-1">Previous</a>
+                </li>
+            }
+           
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                if (i == ViewBag.CurrentPage)
+                {
+                    <li class="page-item active">
+                        <a class="page-link" href='@Url.Action("Index", "Employee", new { currentPage = i })' tabindex="-1">@i</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" href='@Url.Action("Index", "Employee", new { currentPage = i })' tabindex="-1">@i</a>
+                    </li>
+                }
+            }
+
+            @if (@ViewBag.CurrentPage >= @ViewBag.TotalPages)
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" href="@Url.Action("Index", "Employee", new { currentPage = ViewBag.TotalPages  })">Next</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("Index", "Employee", new { currentPage = ViewBag.CurrentPage + 1 })">Next</a>
+                </li>
+            }
+        </ul>    
+</div>
+
+@*<div class="container">
+    <div class="row">
+        @foreach (var em in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                @Html.Partial("EmployeeSummary", em)
+            </div>
+        }
+    </div>
+</div>*@
+<div class="container">
+    <ul class="list-group">
+        @foreach (var em in Model)
+        {
+            <li class="list-item">@Html.Partial("EmployeeSummary", em)</li>
+        }
+    </ul>
+</div>
